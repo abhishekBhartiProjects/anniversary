@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary, My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a0a1a; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #e91e63, #ff6090);
+            border-radius: 4px;
+        }
+
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, #1a0a1e 0%, #0a0a0a 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-heart {
+            font-size: 60px;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        .preloader-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #ff6090;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .preloader-enter {
+            margin-top: 35px;
+            padding: 16px 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #fff;
+            background: linear-gradient(135deg, #e91e63, #ff6090);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 25px rgba(233, 30, 99, 0.4);
+        }
+
+        .preloader-enter:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 35px rgba(233, 30, 99, 0.6);
+        }
+
+        .preloader-hint {
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.8rem;
+            color: rgba(255, 150, 180, 0.5);
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            45% { transform: scale(1); }
+            60% { transform: scale(1.1); }
+        }
+
+        /* ===== FLOATING HEARTS BACKGROUND ===== */
+        .floating-hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            color: rgba(233, 30, 99, 0.15);
+            animation: floatUp linear infinite;
+            font-size: 20px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-110vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* ===== SPARKLE CURSOR TRAIL ===== */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff6090, transparent);
+            animation: sparkleFade 0.8s ease forwards;
+        }
+
+        @keyframes sparkleFade {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 30%, #2d0a2d 0%, #1a0515 40%, #0a0a0a 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 10% 80%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 50% 50%, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.3), transparent);
+            background-size: 250px 250px;
+            animation: twinkle 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid rgba(233, 30, 99, 0.4);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ff6090;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            backdrop-filter: blur(10px);
+            background: rgba(233, 30, 99, 0.05);
+        }
+
+        .hero-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: rgba(255, 150, 180, 0.8);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 7rem);
+            background: linear-gradient(135deg, #fff 0%, #ffb6c1 30%, #ff69b4 60%, #ff1493 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 1s forwards;
+            text-shadow: none;
+            filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.3));
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 3vw, 1.6rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.4s forwards;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 14px 40px;
+            border: 2px solid #ff6090;
+            border-radius: 50px;
+            color: #ff6090;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.8s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #e91e63, #ff6090);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .hero-cta:hover {
+            color: #fff;
+            box-shadow: 0 0 30px rgba(233, 30, 99, 0.4);
+        }
+
+        .hero-cta:hover::before {
+            transform: scaleX(1);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeInUp 1s ease 2.2s forwards;
+        }
+
+        .scroll-indicator .mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(255, 96, 144, 0.5);
+            border-radius: 13px;
+            position: relative;
+            margin: 0 auto 8px;
+        }
+
+        .scroll-indicator .mouse::after {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: #ff6090;
+            border-radius: 2px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            100% { transform: translateX(-50%) translateY(12px); opacity: 0; }
+        }
+
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 96, 144, 0.5);
+        }
+
+        /* ===== SECTION COMMON ===== */
+        section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(180deg, transparent, rgba(233, 30, 99, 0.03), transparent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-divider .ornament {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(233, 30, 99, 0.3);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+        }
+
+        .section-divider .ornament::before,
+        .section-divider .ornament::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(233, 30, 99, 0.3), transparent);
+        }
+
+        /* ===== LOVE LETTER SECTION ===== */
+        .love-letter {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0a0a, #120812, #0a0a0a);
+        }
+
+        .letter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .letter-icon {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .letter-heading {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: #ff6090;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .letter-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.75);
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .letter-text p {
+            margin-bottom: 20px;
+        }
+
+        .letter-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #ff6090;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ===== PHOTO CINEMA SECTION ===== */
+        .photo-cinema {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0a0a, #0f050f);
+        }
+
+        .cinema-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cinema-header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            background: linear-gradient(135deg, #fff, #ff6090);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .cinema-header p {
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+        }
+
+        /* Main Showcase Slider */
+        .showcase-slider {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 25px 60px rgba(233, 30, 99, 0.15),
+                0 0 0 1px rgba(233, 30, 99, 0.1);
+        }
+
+        .showcase-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .showcase-slide {
+            min-width: 100%;
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+        }
+
+        .showcase-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 6s ease;
+        }
+
+        .showcase-slide.active img {
+            transform: scale(1.08);
+        }
+
+        .showcase-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.2) 100%);
+        }
+
+        .showcase-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .showcase-caption p {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .showcase-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .showcase-nav:hover {
+            background: rgba(233, 30, 99, 0.3);
+            border-color: rgba(233, 30, 99, 0.5);
+        }
+
+        .showcase-nav.prev { left: 15px; }
+        .showcase-nav.next { right: 15px; }
+
+        .showcase-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .showcase-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .showcase-dot.active {
+            background: #ff6090;
+            box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+            transform: scale(1.3);
+        }
+
+        /* ===== MOSAIC GALLERY ===== */
+        .mosaic-gallery {
+            padding: 60px 20px 80px;
+            background: linear-gradient(180deg, #0f050f, #0a0a0a);
+        }
+
+        .mosaic-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .mosaic-header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            background: linear-gradient(135deg, #fff, #ff6090);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .mosaic-header p {
+            color: rgba(255,255,255,0.5);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+        }
+
+        .mosaic-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 280px;
+            gap: 15px;
+        }
+
+        .mosaic-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.5s ease;
+        }
+
+        .mosaic-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mosaic-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .mosaic-item:nth-child(5) { grid-column: span 2; }
+        .mosaic-item:nth-child(9) { grid-column: span 2; grid-row: span 2; }
+        .mosaic-item:nth-child(14) { grid-column: span 2; }
+        .mosaic-item:nth-child(18) { grid-column: span 2; grid-row: span 2; }
+        .mosaic-item:nth-child(22) { grid-column: span 2; }
+        .mosaic-item:nth-child(27) { grid-column: span 2; grid-row: span 2; }
+        .mosaic-item:nth-child(32) { grid-column: span 2; }
+
+        .mosaic-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        .mosaic-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .mosaic-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(233, 30, 99, 0.6));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+        }
+
+        .mosaic-item:hover .mosaic-overlay {
+            opacity: 1;
+        }
+
+        .mosaic-overlay span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* ===== QUOTES CAROUSEL ===== */
+        .quotes-section {
+            padding: 100px 20px;
+            background: radial-gradient(ellipse at center, #1a0a1e 0%, #0a0a0a 70%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quotes-section::before {
+            content: '\201C';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 15rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(233, 30, 99, 0.05);
+            line-height: 1;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 200px;
+        }
+
+        .quote-item {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .quote-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .quote-heart {
+            color: #ff6090;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0a0a, #100810, #0a0a0a);
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline-header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            background: linear-gradient(135deg, #fff, #ff6090);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, rgba(233, 30, 99, 0.3), rgba(233, 30, 99, 0.5), rgba(233, 30, 99, 0.3), transparent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item:nth-child(odd) { flex-direction: row; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background: rgba(233, 30, 99, 0.05);
+            border: 1px solid rgba(233, 30, 99, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(233, 30, 99, 0.1);
+            border-color: rgba(233, 30, 99, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: #ff6090;
+            border-radius: 50%;
+            border: 3px solid #0a0a0a;
+            box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
+            z-index: 2;
+        }
+
+        .timeline-emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: #ff6090;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* ===== FULLSCREEN PHOTO VIEWER ===== */
+        .photo-viewer {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .photo-viewer.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .photo-viewer img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 60px rgba(233, 30, 99, 0.2);
+            transform: scale(0.8);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-viewer.active img {
+            transform: scale(1);
+        }
+
+        .photo-viewer-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .photo-viewer-close:hover {
+            background: rgba(233, 30, 99, 0.3);
+        }
+
+        /* ===== PROMISES SECTION ===== */
+        .promises {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0a0a, #120812);
+        }
+
+        .promises-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .promises-header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            background: linear-gradient(135deg, #fff, #ff6090);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .promises-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .promise-card {
+            padding: 30px;
+            background: rgba(233, 30, 99, 0.03);
+            border: 1px solid rgba(233, 30, 99, 0.1);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .promise-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .promise-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(233, 30, 99, 0.3);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.1);
+            background: rgba(233, 30, 99, 0.08);
+        }
+
+        .promise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .promise-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: #ff6090;
+            margin-bottom: 10px;
+        }
+
+        .promise-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        /* ===== PHOTO STRIP ===== */
+        .photo-strip {
+            padding: 40px 0;
+            overflow: hidden;
+            background: linear-gradient(180deg, #120812, #0a0a0a);
+        }
+
+        .strip-track {
+            display: flex;
+            gap: 20px;
+            animation: scrollStrip 60s linear infinite;
+            width: max-content;
+        }
+
+        .strip-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollStrip {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .strip-photo {
+            width: 280px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .strip-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .strip-photo:hover img {
+            transform: scale(1.1);
+        }
+
+        .strip-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(233, 30, 99, 0.2);
+            border-radius: 12px;
+            transition: border-color 0.3s ease;
+        }
+
+        .strip-photo:hover::after {
+            border-color: rgba(233, 30, 99, 0.5);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 80px 20px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 100%, #1a0a1e 0%, #0a0a0a 70%);
+            position: relative;
+        }
+
+        .footer-heart {
+            font-size: 4rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+
+        .footer-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            background: linear-gradient(135deg, #fff, #ff6090, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .footer-sub {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .footer-years {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid rgba(233, 30, 99, 0.3);
+            border-radius: 30px;
+            font-family: 'Playfair Display', serif;
+            color: #ff6090;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== MUSIC TOGGLE ===== */
+        .music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(233, 30, 99, 0.2);
+            border: 1px solid rgba(233, 30, 99, 0.3);
+            backdrop-filter: blur(10px);
+            color: #ff6090;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .music-toggle:hover {
+            background: rgba(233, 30, 99, 0.4);
+            transform: scale(1.1);
+        }
+
+        .music-toggle.playing {
+            animation: pulse-ring 2s ease infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.3); }
+            100% { box-shadow: 0 0 0 15px rgba(233, 30, 99, 0); }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .mosaic-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 200px;
+            }
+
+            .mosaic-item:nth-child(1),
+            .mosaic-item:nth-child(9),
+            .mosaic-item:nth-child(18),
+            .mosaic-item:nth-child(27) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .mosaic-item:nth-child(5),
+            .mosaic-item:nth-child(14),
+            .mosaic-item:nth-child(22),
+            .mosaic-item:nth-child(32) {
+                grid-column: span 1;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                padding-left: 50px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .showcase-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .showcase-nav.prev { left: 8px; }
+            .showcase-nav.next { right: 8px; }
+
+            .strip-photo {
+                width: 200px;
+                height: 150px;
+            }
+
+            .promises-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mosaic-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+
+            .mosaic-item:nth-child(1),
+            .mosaic-item:nth-child(4) {
+                grid-column: span 1;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 6px 18px;
+            }
+
+            .strip-photo {
+                width: 160px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC TOGGLE BUTTON -->
+    <button class="music-toggle" id="musicToggle" title="Toggle Music">
+        <span id="musicIcon">♪</span>
+    </button>
+
+    <!-- PRELOADER / MUSIC GATE -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-heart">💕</div>
+        <div class="preloader-text">Our Love Story</div>
+        <button class="preloader-enter" id="enterBtn">Enter With Love</button>
+        <div class="preloader-hint">tap to begin with music</div>
+    </div>
+
+    <!-- FLOATING HEARTS -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- FULLSCREEN PHOTO VIEWER -->
+    <div class="photo-viewer" id="photoViewer">
+        <div class="photo-viewer-close" onclick="closeViewer()">&times;</div>
+        <img src="" alt="Full view" id="viewerImg">
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Celebrating Our Love</div>
+            <div class="hero-date">February 15, 2026</div>
+            <h1 class="hero-title">Happy Anniversary</h1>
+            <p class="hero-subtitle">
+                Every moment with you is a beautiful chapter in our forever love story.
+                Today, we celebrate another year of us.
+            </p>
+            <a href="#love-letter" class="hero-cta">Read My Heart</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider">
+        <div class="ornament">♥</div>
+    </div>
+
+    <!-- ===== LOVE LETTER ===== -->
+    <section class="love-letter" id="love-letter">
+        <div class="letter-container">
+            <div class="letter-icon" data-animate>💌</div>
+            <h2 class="letter-heading" data-animate>A Letter From My Heart</h2>
+            <div class="letter-text" data-animate>
+                <p>My Dearest Love,</p>
+                <p>From the very first moment our eyes met, I knew my life was about to change forever.
+                You walked into my world like a gentle breeze on a summer day, and since then,
+                every heartbeat of mine whispers your name.</p>
+                <p>You are not just my partner; you are my best friend, my confidante, my greatest adventure,
+                and the most beautiful reason behind my smile. With you, even ordinary moments feel magical,
+                and every sunrise feels like a gift because I get to share it with you.</p>
+                <p>Thank you for choosing me, for loving me, for being the incredible soul that you are.
+                Here's to us, to our journey, and to every beautiful tomorrow waiting for us.</p>
+            </div>
+            <div class="letter-signature" data-animate>Forever & Always Yours ♥</div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider">
+        <div class="ornament">♥</div>
+    </div>
+
+    <!-- ===== PHOTO CINEMA ===== -->
+    <section class="photo-cinema" id="gallery">
+        <div class="cinema-header">
+            <h2>Our Beautiful Moments</h2>
+            <p>A STORY TOLD IN PHOTOGRAPHS</p>
+        </div>
+
+        <div class="showcase-slider" id="showcaseSlider">
+            <div class="showcase-track" id="showcaseTrack">
+                <div class="showcase-slide active">
+                    <img src="pics_opt/RHP95705_edited.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>Where it all began...</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/RHP95709_edited.jpeg" alt="Our moment together">
+                    <div class="showcase-caption"><p>Your smile lights up my world</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/163A1578.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>Every moment with you is magic</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/163A1604.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>Together is my favorite place</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/RHP96248.JPG" alt="Our moment together">
+                    <div class="showcase-caption"><p>In your eyes, I found my home</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/RHP96584_edited.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>Love looks beautiful on us</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/163A1700.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>My heart belongs to you</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/RHP96703-1.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>You make everything beautiful</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/163A1849.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>A lifetime of us</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/RHP96741-1.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>My favorite chapter is us</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/image1a.jpg" alt="Our moment together">
+                    <div class="showcase-caption"><p>Every love story is beautiful, but ours is my favorite</p></div>
+                </div>
+                <div class="showcase-slide">
+                    <img src="pics_opt/RHP96745.JPG" alt="Our moment together">
+                    <div class="showcase-caption"><p>Forever starts with you</p></div>
+                </div>
+            </div>
+            <button class="showcase-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="showcase-nav next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <div class="showcase-dots" id="showcaseDots"></div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider">
+        <div class="ornament">♥</div>
+    </div>
+
+    <!-- ===== MOSAIC GALLERY ===== -->
+    <section class="mosaic-gallery">
+        <div class="mosaic-header">
+            <h2>Frames of Love</h2>
+            <p>EACH PICTURE TELLS OUR STORY</p>
+        </div>
+        <div class="mosaic-grid" id="mosaicGrid">
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP95705_edited.jpg')">
+                <img src="pics_opt/RHP95705_edited.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Heart</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP95709_edited.jpeg')">
+                <img src="pics_opt/RHP95709_edited.jpeg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Joy</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1578.jpg')">
+                <img src="pics_opt/163A1578.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Sunshine</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1596.jpg')">
+                <img src="pics_opt/163A1596.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Everything</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1604.jpg')">
+                <img src="pics_opt/163A1604.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Forever</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1615.jpg')">
+                <img src="pics_opt/163A1615.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Soulmate</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1627.jpg')">
+                <img src="pics_opt/163A1627.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My World</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1632.jpg')">
+                <img src="pics_opt/163A1632.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Dream</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1659.jpg')">
+                <img src="pics_opt/163A1659.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Treasure</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1700.jpg')">
+                <img src="pics_opt/163A1700.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Happiness</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1733.jpg')">
+                <img src="pics_opt/163A1733.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Light</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1849.jpg')">
+                <img src="pics_opt/163A1849.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Paradise</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1855.jpg')">
+                <img src="pics_opt/163A1855.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Blessing</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1869.jpg')">
+                <img src="pics_opt/163A1869.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Angel</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1870.jpg')">
+                <img src="pics_opt/163A1870.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Destiny</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1873.jpg')">
+                <img src="pics_opt/163A1873.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Starlight</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/163A1876.jpg')">
+                <img src="pics_opt/163A1876.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Beloved</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/image1a.jpg')">
+                <img src="pics_opt/image1a.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Miracle</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/image1b.jpg')">
+                <img src="pics_opt/image1b.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Eternity</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/image2a.jpg')">
+                <img src="pics_opt/image2a.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Passion</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/image2b.jpg')">
+                <img src="pics_opt/image2b.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Desire</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/IMG_0462.JPG')">
+                <img src="pics_opt/IMG_0462.JPG" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Devotion</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/IMG_0467.JPG')">
+                <img src="pics_opt/IMG_0467.JPG" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Warmth</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/IMG_20231116_140213.jpg')">
+                <img src="pics_opt/IMG_20231116_140213.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Sweetheart</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/IMG_20231116_142035.jpg')">
+                <img src="pics_opt/IMG_20231116_142035.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Darling</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/IMG_20231116_152628.jpg')">
+                <img src="pics_opt/IMG_20231116_152628.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Queen</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/IMG_20231118_152807.jpg')">
+                <img src="pics_opt/IMG_20231118_152807.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Precious</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96248.JPG')">
+                <img src="pics_opt/RHP96248.JPG" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Enchantment</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96302.JPG')">
+                <img src="pics_opt/RHP96302.JPG" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Bliss</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96451_edited.jpeg')">
+                <img src="pics_opt/RHP96451_edited.jpeg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Romance</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96584_edited.jpg')">
+                <img src="pics_opt/RHP96584_edited.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Grace</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96611_edited.jpg')">
+                <img src="pics_opt/RHP96611_edited.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Wonder</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96703-1.jpg')">
+                <img src="pics_opt/RHP96703-1.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Charm</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96741-1.jpg')">
+                <img src="pics_opt/RHP96741-1.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Delight</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/RHP96745.JPG')">
+                <img src="pics_opt/RHP96745.JPG" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Infinity</span></div>
+            </div>
+            <div class="mosaic-item" onclick="openViewer('pics_opt/WhatsApp Image 2023-11-16 at 7.21.40 PMb.jpg')">
+                <img src="pics_opt/WhatsApp Image 2023-11-16 at 7.21.40 PMb.jpg" alt="Our memory" loading="lazy">
+                <div class="mosaic-overlay"><span>My Universe</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider">
+        <div class="ornament">♥</div>
+    </div>
+
+    <!-- ===== QUOTES ===== -->
+    <section class="quotes-section">
+        <div class="quote-container" id="quoteContainer">
+            <div class="quote-item active">
+                <p class="quote-text">"I fell in love with you not for how you look, but for who you are. And every day, I fall a little deeper."</p>
+                <div class="quote-heart">♥</div>
+            </div>
+            <div class="quote-item">
+                <p class="quote-text">"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."</p>
+                <div class="quote-heart">♥</div>
+            </div>
+            <div class="quote-item">
+                <p class="quote-text">"You are my today and all of my tomorrows. With you, forever doesn't seem long enough."</p>
+                <div class="quote-heart">♥</div>
+            </div>
+            <div class="quote-item">
+                <p class="quote-text">"Every love story is beautiful, but ours is my favorite. Thank you for writing it with me."</p>
+                <div class="quote-heart">♥</div>
+            </div>
+            <div class="quote-item">
+                <p class="quote-text">"If I had a flower for every time you made me smile, I'd walk through an endless garden forever."</p>
+                <div class="quote-heart">♥</div>
+            </div>
+            <div class="quote-item">
+                <p class="quote-text">"I choose you. And I'll choose you over and over. Without pause, without doubt, in a heartbeat. I'll keep choosing you."</p>
+                <div class="quote-heart">♥</div>
+            </div>
+            <div class="quote-item">
+                <p class="quote-text">"You are the poem I never knew how to write, and this life is the story I have always wanted to tell."</p>
+                <div class="quote-heart">♥</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider">
+        <div class="ornament">♥</div>
+    </div>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="timeline-section">
+        <div class="timeline-header">
+            <h2>Milestones of Us</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-emoji">✨</div>
+                    <div class="timeline-title">The First Glance</div>
+                    <div class="timeline-desc">The moment I saw you, time stopped. My heart whispered, "That's the one." And it has never been wrong.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-emoji">💑</div>
+                    <div class="timeline-title">Falling in Love</div>
+                    <div class="timeline-desc">Every conversation, every laugh, every shared silence drew me closer to you. Falling in love with you was the easiest thing I've ever done.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-emoji">💍</div>
+                    <div class="timeline-title">The Promise</div>
+                    <div class="timeline-desc">When I asked you to be mine forever, and you said yes, the whole universe celebrated with us. That was the best day of my life — until the next one with you.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-emoji">💒</div>
+                    <div class="timeline-title">Our Beautiful Wedding</div>
+                    <div class="timeline-desc">Two souls became one. In front of everyone who mattered, we promised forever. You were the most beautiful sight I have ever seen.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-emoji">🏡</div>
+                    <div class="timeline-title">Building Our World</div>
+                    <div class="timeline-desc">Together we built not just a home, but a sanctuary of love. Every corner holds a memory, every room echoes our laughter.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-emoji">💕</div>
+                    <div class="timeline-title">Today & Forever</div>
+                    <div class="timeline-desc">Here we are, celebrating another anniversary. My love for you has only grown deeper, stronger, and more beautiful. The best is yet to come, my love.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider">
+        <div class="ornament">♥</div>
+    </div>
+
+    <!-- ===== PROMISES ===== -->
+    <section class="promises">
+        <div class="promises-header">
+            <h2>My Promises to You</h2>
+        </div>
+        <div class="promises-grid">
+            <div class="promise-card">
+                <div class="promise-icon">🌹</div>
+                <div class="promise-title">Endless Love</div>
+                <div class="promise-text">I promise to love you more with each passing day, through every season of our lives, until the stars forget to shine.</div>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">🤝</div>
+                <div class="promise-title">Unwavering Support</div>
+                <div class="promise-text">I promise to be your rock, your shelter in every storm, and your biggest cheerleader in every triumph.</div>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">😊</div>
+                <div class="promise-title">Daily Happiness</div>
+                <div class="promise-text">I promise to make you smile every single day, to find joy in the little things, and to never let a day pass without telling you how much you mean to me.</div>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">🌟</div>
+                <div class="promise-title">Growing Together</div>
+                <div class="promise-text">I promise to grow with you, to dream with you, and to build a future so beautiful that even fairy tales would be jealous.</div>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">🤗</div>
+                <div class="promise-title">Warm Embrace</div>
+                <div class="promise-text">I promise that my arms will always be your home, my shoulder your resting place, and my heart forever yours.</div>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">♾️</div>
+                <div class="promise-title">Forever Faithful</div>
+                <div class="promise-text">I promise that in every lifetime, in every universe, I would find you and choose you. Always and forever, it's you.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PHOTO STRIP ===== -->
+    <section class="photo-strip">
+        <div class="strip-track" id="stripTrack">
+            <!-- Photos duplicated for infinite scroll -->
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <section class="footer">
+        <div class="footer-heart">💖</div>
+        <h2 class="footer-message">I Love You More Than Words Can Say</h2>
+        <p class="footer-sub">"You are the best thing that ever happened to me."</p>
+        <div class="footer-years">With All My Love, Today & Forever</div>
+    </section>
+
+    <script>
+        // ===== PHOTO DATA =====
+        const photos = [
+            'pics_opt/163A1578.jpg',
+            'pics_opt/163A1596.jpg',
+            'pics_opt/163A1604.jpg',
+            'pics_opt/163A1615.jpg',
+            'pics_opt/163A1627.jpg',
+            'pics_opt/163A1632.jpg',
+            'pics_opt/163A1659.jpg',
+            'pics_opt/163A1700.jpg',
+            'pics_opt/163A1733.jpg',
+            'pics_opt/163A1849.jpg',
+            'pics_opt/163A1855.jpg',
+            'pics_opt/163A1869.jpg',
+            'pics_opt/163A1870.jpg',
+            'pics_opt/163A1873.jpg',
+            'pics_opt/163A1876.jpg',
+            'pics_opt/image1a.jpg',
+            'pics_opt/image1b.jpg',
+            'pics_opt/image2a.jpg',
+            'pics_opt/image2b.jpg',
+            'pics_opt/IMG_0462.JPG',
+            'pics_opt/IMG_0467.JPG',
+            'pics_opt/IMG_20231116_140213.jpg',
+            'pics_opt/IMG_20231116_142035.jpg',
+            'pics_opt/IMG_20231116_152628.jpg',
+            'pics_opt/IMG_20231118_152807.jpg',
+            'pics_opt/RHP95705_edited.jpg',
+            'pics_opt/RHP95709_edited.jpeg',
+            'pics_opt/RHP96248.JPG',
+            'pics_opt/RHP96302.JPG',
+            'pics_opt/RHP96451_edited.jpeg',
+            'pics_opt/RHP96584_edited.jpg',
+            'pics_opt/RHP96611_edited.jpg',
+            'pics_opt/RHP96703-1.jpg',
+            'pics_opt/RHP96741-1.jpg',
+            'pics_opt/RHP96745.JPG',
+            'pics_opt/WhatsApp Image 2023-11-16 at 7.21.40 PMb.jpg'
+        ];
+
+        // ===== PRELOADER & MUSIC =====
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+        let isMusicPlaying = false;
+
+        // Enter button starts music and hides preloader
+        document.getElementById('enterBtn').addEventListener('click', () => {
+            bgMusic.volume = 0;
+            bgMusic.play().then(() => {
+                isMusicPlaying = true;
+                musicToggle.classList.add('playing');
+                musicIcon.textContent = '♪';
+                // Fade in volume smoothly
+                let vol = 0;
+                const fadeIn = setInterval(() => {
+                    vol += 0.02;
+                    if (vol >= 0.5) { vol = 0.5; clearInterval(fadeIn); }
+                    bgMusic.volume = vol;
+                }, 50);
+            }).catch(() => {});
+            document.getElementById('preloader').classList.add('hidden');
+        });
+
+        // Music toggle button
+        musicToggle.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                isMusicPlaying = false;
+                musicToggle.classList.remove('playing');
+                musicIcon.textContent = '♪';
+                musicToggle.style.opacity = '0.5';
+            } else {
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicToggle.classList.add('playing');
+                    musicIcon.textContent = '♪';
+                    musicToggle.style.opacity = '1';
+                    if (bgMusic.volume === 0) bgMusic.volume = 0.5;
+                }).catch(() => {});
+            }
+        });
+
+        // ===== FLOATING HEARTS =====
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['♥', '♡', '❤', '💕', '💗'];
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDuration = (Math.random() * 10 + 12) + 's';
+                heart.style.animationDelay = (Math.random() * 15) + 's';
+                heart.style.opacity = Math.random() * 0.3 + 0.05;
+                container.appendChild(heart);
+            }
+        }
+        createFloatingHearts();
+
+        // ===== SPARKLE CURSOR TRAIL =====
+        let sparkleThrottle = 0;
+        document.addEventListener('mousemove', (e) => {
+            sparkleThrottle++;
+            if (sparkleThrottle % 3 !== 0) return;
+
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 800);
+        });
+
+        // ===== SHOWCASE SLIDER =====
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.showcase-slide');
+        const track = document.getElementById('showcaseTrack');
+        const dotsContainer = document.getElementById('showcaseDots');
+
+        // Create dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'showcase-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        });
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides[currentSlide].classList.add('active');
+
+            document.querySelectorAll('.showcase-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function changeSlide(dir) {
+            let next = currentSlide + dir;
+            if (next < 0) next = slides.length - 1;
+            if (next >= slides.length) next = 0;
+            goToSlide(next);
+        }
+
+        // Auto-advance slides
+        let slideInterval = setInterval(() => changeSlide(1), 4500);
+
+        document.getElementById('showcaseSlider').addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        document.getElementById('showcaseSlider').addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => changeSlide(1), 4500);
+        });
+
+        // Touch support for slider
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.getElementById('showcaseSlider').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(slideInterval);
+        }, { passive: true });
+
+        document.getElementById('showcaseSlider').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                changeSlide(diff > 0 ? 1 : -1);
+            }
+            slideInterval = setInterval(() => changeSlide(1), 4500);
+        }, { passive: true });
+
+        // ===== QUOTES CAROUSEL =====
+        const quotes = document.querySelectorAll('.quote-item');
+        let currentQuote = 0;
+
+        setInterval(() => {
+            quotes[currentQuote].classList.remove('active');
+            currentQuote = (currentQuote + 1) % quotes.length;
+            quotes[currentQuote].classList.add('active');
+        }, 5000);
+
+        // ===== PHOTO STRIP (Infinite Scroll) =====
+        function buildPhotoStrip() {
+            const track = document.getElementById('stripTrack');
+            // Double the photos for seamless loop
+            const allPhotos = [...photos, ...photos];
+            allPhotos.forEach(src => {
+                const div = document.createElement('div');
+                div.className = 'strip-photo';
+                div.innerHTML = `<img src="${src}" alt="Our memory" loading="lazy">`;
+                div.onclick = () => openViewer(src);
+                track.appendChild(div);
+            });
+        }
+        buildPhotoStrip();
+
+        // ===== FULLSCREEN VIEWER =====
+        function openViewer(src) {
+            const viewer = document.getElementById('photoViewer');
+            document.getElementById('viewerImg').src = src;
+            viewer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeViewer() {
+            document.getElementById('photoViewer').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('photoViewer').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeViewer();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeViewer();
+        });
+
+        // ===== SCROLL ANIMATIONS (Intersection Observer) =====
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+        document.querySelectorAll('.mosaic-item').forEach(el => observer.observe(el));
+        document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+        document.querySelectorAll('.promise-card').forEach(el => observer.observe(el));
+
+        // ===== PARALLAX ON HERO =====
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+
+        // ===== SMOOTH REVEAL ON SECTION ENTRY =====
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // ===== ANNIVERSARY COUNTDOWN CONFETTI ON LOAD =====
+        setTimeout(() => {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.cssText = `
+                        position: fixed;
+                        top: -10px;
+                        left: ${Math.random() * 100}%;
+                        width: ${Math.random() * 8 + 4}px;
+                        height: ${Math.random() * 8 + 4}px;
+                        background: ${['#ff6090', '#ff1493', '#ffb6c1', '#fff', '#e91e63', '#ff69b4'][Math.floor(Math.random() * 6)]};
+                        border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+                        z-index: 9998;
+                        pointer-events: none;
+                        animation: confettiFall ${Math.random() * 3 + 2}s linear forwards;
+                    `;
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 50);
+            }
+        }, 2500);
+
+        // Confetti animation
+        const confettiStyle = document.createElement('style');
+        confettiStyle.textContent = `
+            @keyframes confettiFall {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(${Math.random() * 720}deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(confettiStyle);
+
+        // ===== CONSOLE LOVE MESSAGE =====
+        console.log('%c💕 Happy Anniversary! 💕', 'font-size: 24px; color: #ff6090; font-family: cursive;');
+        console.log('%cMade with love, for the love of my life.', 'font-size: 14px; color: #ff69b4;');
+    </script>
+</body>
+</html>
